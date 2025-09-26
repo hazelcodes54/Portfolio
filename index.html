@@ -1,118 +1,415 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <link rel="stylesheet" href="source/styles.css" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Hazera Sarker - Aspiring Full Stack Developer Portfolio">
+        <title>Hazera Sarker - Full Stack Developer</title>
+        
+        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,800&display=swap" rel="stylesheet">
-        <title>Porfolio</title>
-        <meta charset="UTF-8" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="source/styles.css" />
     </head>    
     <body>
-        <section class="hero">
-            <nav>
-                <img src="./source/images/moon.png" alt="">
-                <ul id="nav-list">
-                    <li><a href="#Experiences">Experiences</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#Contact-me">Contact</a></li>
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="./source/images/moon.png" alt="Logo">
+                    <span>Hazera</span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="https://docs.google.com/document/d/10eW97LyVHfxzD4LSrMX-Z16dcmoHIk_tQBeH-KGChDE/edit?usp=drive_link" target="_blank" class="nav-link resume-btn">Resume</a></li>
                 </ul>
-            </nav>
-            <div class="hero-area">
-                <div class="hero-text">
-                    <h1>Hazera Sarker</h1>
-                    <p>Aspiring to become a Full Stack developer</p>
-                    <div class="button">
-                        <a href="#projects">Click to View</a>
-                    </div>
-                </div> 
-                <div class="main-imgage">
-                    <img class="main-img">
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-
-                <div class="socials">
-                    <div><a href="https://twitter.com/Kudjsjakqkk_qwr" class="social">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg>
-                    </a></div>
-                    <div><a href="https://www.linkedin.com/in/hazera-sarker-b1ab59250/" class="social">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M0 0v24h24v-24h-24zm8 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.397-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a></div>
-                    <div><a href="https://github.com/hazelcodes54" class="social">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a></div>
-                </div> 
-                </div>
-        </section>
-
-
-        <section class="sub-section-alternative" id="projects">
-            <h2>Projects</h2>
-            <div class="project-container">
-                <div class="project-card">
-                    <img class="project-image" src="source/images/f17dddf0-5c9c-4bfa-9225-eb80d1628f09.gif">
-                    <p class="subtext">I created a platform that showcases the beauty of K-beauty products</p>
-                    <hr/>
-                    <p class="subtext-1">View here</p>
-                </div>
-
-
-                <div class="project-card">
-                    <img class="project-image" src="#">
-                    <p class="subtext">This is my project and some text about it and it can be any projects built</p>
-                    <hr/>
-                    <p class="subtext-1">View here</p>
-                </div>
-
-
-                <div class="project-card">
-                    <img class="project-image" src="">
-                    <p class="subtext">This is my project and some text about it and it can be any projects built</p>
-                    <hr/>
-                    <p class="subtext-1">View here</p>
-                </div>
-        </section>
-
-
-        <!--=============Experience Section===========-->
-
-        <section class="last-section" id="Experiences">
-           <h2 class="last-section-h2-tag">Experiences</h2>
-           <img class="last-section-img" src="source/images/computer.png">
-        </section>
-
-
-
-        <!--============Footer==============-->
-
-        <footer id="Contact-me">
-            <h2 class="footer-tag">Contact me</h2>
-            <div class="Experence container">
-
             </div>
-            <p>hazelatnewtown@gmail.com</p>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Hi, I'm <span class="highlight">Hazera Sarker</span></h1>
+                        <h2 class="hero-subtitle">Aspiring Full Stack Developer</h2>
+                        <p class="hero-description">
+                            Passionate about creating beautiful, functional web applications and constantly learning new technologies to build innovative solutions.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn btn-primary">View My Work</a>
+                            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="image-container">
+                            <img src="./source/images/unnamed (3).jpg" alt="Hazera Sarker" class="profile-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://github.com/hazelcodes54" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/hazera-sarker-b1ab59250/" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com/Kudjsjakqkk_qwr" class="social-link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            I'm a passionate aspiring Full Stack Developer with a strong foundation in web technologies. 
+                            I enjoy creating user-friendly interfaces and robust backend systems that solve real-world problems.
+                        </p>
+                        <p>
+                            My journey in web development started with curiosity and has grown into a genuine passion for 
+                            creating digital experiences that make a difference. I'm always eager to learn new technologies 
+                            and take on challenging projects.
+                        </p>
+                        <div class="about-stats">
+                            <div class="stat">
+                                <h3>3+</h3>
+                                <p>Projects Completed</p>
+                            </div>
+                            <div class="stat">
+                                <h3>100%</h3>
+                                <p>Commitment</p>
+                            </div>
+                            <div class="stat">
+                                <h3>24/7</h3>
+                                <p>Learning Mode</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills" id="skills">
+            <div class="container">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <i class="fab fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-java"></i>
+                                <span>Java</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-code"></i>
+                                <span>C++</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-code"></i>
+                                <span>C#</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Web Technologies</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <img src="./source/images/html  logo.png" alt="HTML">
+                                <span>HTML/CSS</span>
+                            </div>
+                            <div class="skill-item">
+                                <img src="./source/images/js.png" alt="JavaScript">
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-react"></i>
+                                <span>React</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-js-square"></i>
+                                <span>TypeScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Others</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <i class="fab fa-git-alt"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Responsive Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
 
+        <!-- Projects Section -->
+        <section class="projects" id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Here are some of my recent projects that showcase my skills and creativity</p>
+                
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="source/images/computer.png" alt="Customer Chatbot">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" target="_blank" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://github.com/hazelcodes54/Customer-chat-bot" target="_blank" class="project-link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Customer Chatbot</h3>
+                            <p class="project-description">
+                                An intelligent customer service chatbot with FAQ support, order tracking, and AI fallback capabilities. Built with modern full-stack technologies for seamless user experience.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">SQLite</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">OpenAI</span>
+                                <span class="tech-tag">Hugging Face</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-                smoothScrollLinks.forEach(anchor => {
-                    anchor.addEventListener("click", function (e) {
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute("href"));
-                        const offset = 100; 
-                        const elementPosition = target.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition - offset;
-    
-                        window.scrollBy({
-                            top: offsetPosition,
-                            behavior: "smooth"
-                        });
-                    });
-                });
-            });
-        </script>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="source/images/analysis.png" alt="Study Buddy App">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" target="_blank" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://github.com/hazelcodes54/studdy-buddy" target="_blank" class="project-link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Study Buddy</h3>
+                            <p class="project-description">
+                                A full-stack language learning application that generates personalized flashcards using AI. Features interactive card flipping, responsive design, and dynamic content creation powered by OpenAI's GPT API.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Tailwind CSS</span>
+                                <span class="tech-tag">OpenAI GPT</span>
+                                <span class="tech-tag">React</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="source/images/weather-forecast.png" alt="Weather Tracker App">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://hazelcodes54.github.io/weather-app/" target="_blank" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://github.com/hazelcodes54/weather-app" target="_blank" class="project-link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Weather Tracker</h3>
+                            <p class="project-description">
+                                A real-time weather application that provides users with current weather updates and forecasts tailored to their specific locations. Features a clean interface and intuitive user experience for seamless weather searches.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Weather API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Experience Section -->
+        <section class="experience" id="experience">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">July 2024</div>
+                        <div class="timeline-content">
+                            <h3>SpeakHire Intern</h3>
+                            <h4>Software Engineer</h4>
+                            <p>Contributed to the development of Champion Dashboard with modern web technologies and collaborated with cross-functional teams to deliver high-quality software solutions.</p>
+                            <ul>
+                                <li>Enhanced Champion Dashboard with responsive React components for better UX</li>
+                                <li>Integrated Node.js, PostgreSQL, and Prisma APIs to secure data flow and improve reliability</li>
+                                <li>Collaborated with teams to review PRs, fix bugs, and deploy updates via GitHub</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">July 2024</div>
+                        <div class="timeline-content">
+                            <h3>Headstarter</h3>
+                            <h4>Software Engineer Fellow</h4>
+                            <p>Collaborated with a team of 4 colleagues to develop an innovative platform featuring meeting scheduling, availability coordination, and video calling capabilities using modern React architecture.</p>
+                            <ul>
+                                <li>Worked with a team of 4 colleagues to create a React-based platform with scheduling meetings, coordinating availability, and facilitating video calls</li>
+                                <li>Employed software design patterns and Git version control for innovative software solutions</li>
+                                <li>Built front-end in React and managed collaboration with Git/GitHub</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">September 2024</div>
+                        <div class="timeline-content">
+                            <h3>Webacy Competitive Strategy Extern</h3>
+                            <h4>Webacy</h4>
+                            <p>Conducted comprehensive research and competitive analysis in the Web3 and blockchain sectors to drive strategic decision-making and market positioning initiatives.</p>
+                            <ul>
+                                <li>Researched user behavior and security gaps in the Web3 and blockchain sectors</li>
+                                <li>Conducted competitive analysis of startups and niche players to refine Webacy's market positioning and strategy</li>
+                                <li>Developed strategic recommendations by synthesizing insights on the Web3 security landscape and blockchain trends</li>
+                                <li>Presented findings to cross-functional teams to support decision-making and align strategic priorities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">I'm always interested in new opportunities and exciting projects</p>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>hazelatnewtown@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+1 (929) 569-8716</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Location</h3>
+                                <p>New york, NY</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-text">
+                        <p>&copy; 2025 Hazera Sarker. All rights reserved.</p>
+                    </div>
+                    <div class="footer-socials">
+                        <a href="https://github.com/hazelcodes54" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hazera-sarker-b1ab59250/" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/Kudjsjakqkk_qwr" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Scroll to Top Button -->
+        <button class="scroll-top" onclick="scrollToTop()">
+            <i class="fas fa-arrow-up"></i>
+        </button>
 
         <script src="source/app.js"></script>
     </body>
