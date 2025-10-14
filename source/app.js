@@ -69,30 +69,120 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Contact form handling
+    // Contact form handling with multiple fallback options
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            
             // Get form data
             const formData = new FormData(contactForm);
             const name = formData.get('name');
-            const email = formData.get('email');
+            const email = formData.get('_replyto') || formData.get('email');
             const subject = formData.get('subject');
             const message = formData.get('message');
             
             // Simple validation
             if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields');
+                showMessage('Please fill in all fields', 'error');
                 return;
             }
             
-            // Here you would typically send the data to a server
-            // For now, we'll just show a success message
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            contactForm.reset();
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline-block';
+            
+            // Try Formspree first, then fallback to mailto
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    showMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                } else {
+                    // If Formspree fails, use mailto fallback
+                    throw new Error('Formspree not available');
+                }
+            })
+            .catch(error => {
+                console.log('Formspree failed, using mailto fallback:', error);
+                
+                // Create mailto link as fallback
+                const mailtoSubject = encodeURIComponent(`Portfolio Contact: ${subject}`);
+                const mailtoBody = encodeURIComponent(
+                    `Hi Hazera,\n\n` +
+                    `Name: ${name}\n` +
+                    `Email: ${email}\n` +
+                    `Subject: ${subject}\n\n` +
+                    `Message:\n${message}\n\n` +
+                    `---\nSent from your portfolio contact form`
+                );
+                
+                const mailtoLink = `mailto:hazelatnewtown@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+                
+                // Show success message and open email client
+                showMessage('Opening your email client with the message pre-filled. Please send the email to complete your contact request.', 'success');
+                
+                // Small delay then open email client
+                setTimeout(() => {
+                    window.open(mailtoLink, '_self');
+                }, 1500);
+                
+                // Reset form
+                contactForm.reset();
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.style.display = 'inline-block';
+                btnLoading.style.display = 'none';
+            });
         });
+    }
+
+    // Function to show messages
+    function showMessage(message, type) {
+        // Remove any existing message
+        const existingMessage = document.querySelector('.form-message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+        
+        // Create new message element
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `form-message ${type}`;
+        messageDiv.textContent = message;
+        
+        // Insert message before the form
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.parentNode.insertBefore(messageDiv, contactForm);
+        
+        // Remove message after 7 seconds
+        setTimeout(() => {
+            if (messageDiv.parentNode) {
+                messageDiv.remove();
+            }
+        }, 7000);
+        
+        // Scroll to message
+        messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     // Typing animation for hero section
